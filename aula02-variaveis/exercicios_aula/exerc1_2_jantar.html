@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>calculadora de divisão de conta</title>
 </head>
 <body>
-    <h1> Divisão de valor</h1>
+    <h1>Calculadora de divisão de conta</h1>
     <script>
         // Elabore um programa para uma pizzaria que informe 
         // o valor a ser pago por cada cliente. 
         // Calcule a taxa de serviço e divida o valor total 
         // pela quantidade de clientes informada.
 
-        const valor = Number(promtp("Informe valor da conta: "))
-        const clientes = prompt("Informe o número de clientes: ")
-
+        const conta = Number(prompt("Informe valor da conta R$: "))    // lê um valor de entrada e converte para tipo numérico (valor do jantar)
+        const qtd_clientes = Number(prompt("Informe o número de clientes: "))   // lê um valor de entrada e converter para tipo numérico (quantidade de clientes)
+        const tx_servico = conta * 0.10     // calcula o valor da taxa de serviço
+        const conta_total = conta + tx_servico  // adiciona o valor da taxa de serviço ao preço da conta
+        const valor_cliente = conta_total / qtd_clientes    // calcula valor devido por cada cliente
+        alert(`Valor do serviço R$: ${conta.toFixed(2)}\nValor taxa de serviço R$: ${tx_servico.toFixed(2)}\nNº de clientes: ${qtd_clientes}\nValor por cliente R$: ${valor_cliente.toFixed(2)}`)   // exibe relatório descritivo da conta por cliente
     </script>
-    
-
-    
 </body>
 </html>
