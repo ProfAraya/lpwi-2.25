@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Número Anterior e Posterior</title>
+</head>
+<body>
+    <h1>Número Anterior e Posterios</h1>
+    <script>
+        // Elabore um programa que leia um número inteiro e mostre seus vizinhos, 
+        // isto é, o número anterior e o posterior ao número informado. 
+        // Exemplo: se informar 15, deve mostrar 14 e 16
+
+        const num = Number(prompt("Informe um número: ")) // lê um dado de entrada
+        const numAnterior = num - 1     // calcula o número anterior
+        const numPosterior = num + 1    // calcula o número posterior
+        alert(`O número anterior à ${num} é ${numAnterior} e o número posterior é ${numPosterior}.`)   // exibe resposta
+    </script>
+</body>
+</html>
