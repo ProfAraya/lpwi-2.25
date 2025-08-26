@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento</title>
+</head>
+<body>
+    <script>
+        valor = prompt("Valor da compra: ")
+        alert(`Escolha a forma de pagamento:\n1 - À vista (10% de desconto)\n2 - A prazo (parcela em 3x sem juros)`)
+        forma = prompt("Forma de pagamento (1 ou 2): ")
+        if (forma == 1) {
+            total = Number(valor) * 0.9
+            alert(`O valor a ser pago é R$${total.toFixed(2)}`)
+        } else if (forma == 2) {
+            parcela = Number(valor) / 3
+            alert(`O valor a ser pago é R$${valor}, em 3x de R$${parcela.toFixed(2)} sem juros`)
+        } else {
+            alert("Forma de pagamento inválida")
+        }
+    </script>
+</body>
+</html>
