@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const compra = prompt("Digite o valor da compra:")
+        const forma = prompt("Sera avista ou a prazo:(1) OU (2) ")
+        const desconto = compra * 0.10;
+        const parcela = compra /3
+        const valortotal = compra - desconto
+        if (forma == 2 ){ 
+            alert(`Valor parcelado é: 3x ${parcela.toFixed(2)}`)
+        } else if  (forma == 1);
+            alert(`Valor avista é:${valortotal.toFixed(2)}`)
+
+
+    </script>
+</body>
+</html>
