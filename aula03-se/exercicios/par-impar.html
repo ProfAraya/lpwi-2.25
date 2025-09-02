@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Elabore um programa que leia um número.
+        Informe se ele é ímpar ou par.
+        Faça com o if...else... tradicional e após,
+        tente criar com o operador ternário.
+    </p>
+    | <h1> Par ou ímpar</h1>
+    <form>
+        <p>Número:
+            <input type="number" id="idNumero" 
+                   step="1" 
+                   min="0" 
+                   max="100" 
+                   required>
+        </p>
+        <input type="submit" value="Par ou Ímpar">
+    </form>
+    <h3></h3>
+    <script>
+        // cria referência ao form e elementos de resposta do programa
+        const frm = document.querySelector("form");
+        const resp1 = document.querySelector("h3");
+
+        // cria um "ouvinte" de evento, acionado quando o botão submit for clicado
+        frm.addEventListener("submit", (e) => {
+            e.preventDefault()    // evita envio do form
+            const numero = Number(frm.idNumero.value)
+            /*
+                        if (numero % 2 === 0) {
+                            resp1.innerText = `O número ${numero} é par! `
+                        } else {
+                            resp1.innerText = `O número ${numero} é ímpar! `
+                        }
+            */
+            const parOuImpar = (numero % 2 === 0) ? "par" : "ímpar"
+            resp1.innerText = `O número ${numero} é ${parOuImpar}! `
+
+        })
+    </script>
+</body>
+</html>
