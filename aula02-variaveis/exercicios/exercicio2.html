@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2</title>
+</head>
+<body>
+    <h1>Exercício 2</h1>
+    <p>Elabore um programa para uma pizzaria que
+        informe o valor a ser pago por cada cliente.
+        Calcule a taxa de serviço e divida o valor total
+        pela quantidade de clientes informada.
+    </p>
+    <script>
+        // obter o valor da conta
+        const jantar = Number(prompt('Valor do jantar R$:'))
+        // obter a quantidade de pessoas que vai dividir a conta
+        const clientes = Number(prompt('Quantidade de clientes:'))
+        // calcular a taxa de serviço
+        const garcom = jantar * 0.10
+        // calcular o total (conta + taxa de serviço)
+        const total = jantar + garcom
+        // calcular o valor que cada pessoa pagará
+        const valorPorCliente = total / clientes
+        // mostrar o valor que cada pessoa pagará
+        alert(`Taxa garçom R$: ${garcom.toFixed(2)}\nTotal da Conta R$: ${total.toFixed(2)}\nValor por Cliente R$: ${valorPorCliente.toFixed(2)}  `)
+
+    </script>
+</body>
+</html>
