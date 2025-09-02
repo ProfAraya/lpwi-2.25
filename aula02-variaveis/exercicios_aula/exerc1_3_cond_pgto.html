@@ -12,15 +12,26 @@
         // Se o pagamento for à vista, terá desconto de 10%, se o pagamento for a prazo, 
         // poderá ser dividido em três vezes, mostre o valor de cada parcela com duas casas decimais.
 
-        const valor_compra = Number(prompt("Informe o valor da compra R$:"))    // lê um dado de entrada (valor compra informado)
-        const cond_pgto = prompt("Informe condição de pagamento\nPara pagamento à vista (10% desconto), digite 1\nPara pagamento à prazo (3x), digite 2):")  // solicita entrada de dados específicos
+        const valor_compra = Number(prompt("Informe o valor da compra R$:"));    // lê um dado de entrada (valor compra informado)
+        const cond_pgto = prompt("Informe condição de pagamento\nPara pagamento à vista (10% desconto), digite 1\nPara pagamento à prazo (3x), digite 2):");  // solicita entrada de dados específicos
+        let valor_total = 0;
+        //let parcela = 1;
+        //let desconto = 0;
+        console.log(typeof parcela)
+        alert(parcela)
+        console.log(typeof desconto)
+        if (typeof parcela === 'undefined') {
+            console.log("Has not been declared")
+        }
+        //console.log(parcela)
+        //console.log(desconto)
         if (cond_pgto == 1) {
-            desconto = valor_compra * 0.10  // calcula valor desconto 10% p/ pagamento à vista
-            let valor_total = valor_compra - desconto  // aplica desconto de 10% p/ pagamento à vista
+            let desconto = valor_compra * 0.10  // calcula valor desconto 10% p/ pagamento à vista
+            valor_total = valor_compra - desconto  // aplica desconto de 10% p/ pagamento à vista
             alert(`Valor compra R$: ${valor_compra.toFixed(2)}\nValor desconto (10%) à vista R$: ${desconto.toFixed(2)}\nValor total R$: ${valor_total.toFixed(2)}`)
         } else if (cond_pgto == 2) {
             let parcela = valor_compra / 3  // calcula valor parcelas
-            let valor_total = valor_compra
+            valor_total = valor_compra
             alert(`Valor compra R$: ${valor_compra.toFixed(2)}\nValor parcelado (3x) R$: ${parcela.toFixed(2)}`)
         } else {
             alert("Forma de pagamento informada inválida!")

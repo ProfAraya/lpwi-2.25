@@ -12,7 +12,11 @@
         // Edécio Fernando Iepsen
         // Novatec 
         const num = prompt("Número: ") // lê um dado de entrada
-        const dobro = num * 2;         // calcula o dobro
+        console.log(typeof(num))       // variável do tipo string
+        const dobro = num * 2;         // calcula o dobro, e nesse caso se for um caracter numérico do tipo string, 
+                                        // converte para número nesse caso automaticamente
+        console.log(typeof(num))       // variável do tipo string
+        console.log(typeof(dobro))     // variável do tipo numérico (genérico)
         alert("O dobro é: " + dobro)   // exibe resposta
     </script>
 </body>

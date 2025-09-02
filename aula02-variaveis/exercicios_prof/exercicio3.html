@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+<body>
+    <h1>Condições de Pagamento</h1>
+    <p>Programa que lê o valor de uma compra e informa as condições de pagamento. Se o pagamento for à vista, terá desconto de 10%, se o pagamento for a prazo, poderá ser dividido em três vezes. Mostra o valor de cada parcela com duas casas decimais.
+    </p>
+    <script>
+        //  obter o valor da compra
+        const compra = Number(promtp("Valor da compra R$: "))
+        //  informar as condições de pagamento
+        alert(`Condições de pagamento\nÀ vista: 10% de desconto\nParcelado: até 3x`)
+        //  obter condição de pagamento
+        const tipoPgto = prompt("Informe condição de pagamento:\nDigite V para compra à vista\nDigite P para compra parcelada\nCondição de pagamento selecionada: ").toLowerCase()
+        //  condicionar valor de pagamento ao tipo de pagamento
+        if(){
+
+        }else{
+            
+        }
+        //  calcular desconto p/ pagamento à vista
+        //  calcular parcelas p/ pagamento parcelado
+        //  mostrar o valor de cada parcela com duas casas decimais
+        alert(` ${.toFixed(2)}\n ${.toFixed(2)}\n ${.toFixed(2)}`)
+        /*
+            let compra = parseFloat(prompt("Digite o valor da compra: "))
+            let tipPag = prompt("Digite a forma de pagamento: [V para à vista| P para Parcelado]").toLowerCase()
+            let parcela = 0
+            if(tipPag === 'v'){
+                compra = compra-(compra*0.10)
+                window.alert(`o valor da compra a vista será R$${compra.toFixed(2)}`)
+            }else if(tipPag === 'p'){
+                parcela = compra/3
+                window.alert(`o valor da compra parcelada será R$${compra.toFixed(2)} dividido em 3 vezes de R$${parcela.toFixed(2)}`)
+            }else{
+                window.alert("Valor inválido, digite V ou P")
+            }*/
+    </script>    
+</body>
+</html>
