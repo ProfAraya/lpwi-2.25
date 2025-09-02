@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 3</title>
+</head>
+<body>
+    <h1>Exercício 3</h1>
+    <p>Elabore um programa o qual leia o valor de uma compra
+        e informe as condições de pagamento.
+        Se o pagamento for à vista, terá desconto de 10%
+        e o pagamento for a prazo,
+        poderá ser dividido em três vezes,
+        mostre o valor de cada parcela com duas casas decimais.
+    </p>
+    <script>
+        const compra = Number(prompt('Digite o valor da compra:'))
+        const condicao = prompt('Digite 1 para pagamento a vista ou 2 para pagamento a prazo')
+        if (condicao == 1) {
+            const valor = compra * 0.90
+            alert(`O valor a ser pago é ${valor.toFixed(2)}`)
+        } else if (condicao == 2) {
+            const valor = compra / 3
+            alert(`Poderá pagar três parcelas de ${valor.toFixed(2)}`)
+        } else {
+            alert('Condição de pagamento deve ser 1 ou 2')
+        }
+    </script>
+</body>
+</html>
