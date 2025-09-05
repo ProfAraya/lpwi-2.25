@@ -13,13 +13,20 @@
     </p>
     <script>
         // obter nota1
-        const nota1 = Number(prompt('Digite nota1:'))
+        const nota1 = Number(prompt('Digite nota 1:'))
         // obter nota2
-        const nota2 = Number(prompt('Digite nota2:'))
+        const nota2 = Number(prompt('Digite nota 2:'))
         // calcular média
         const media = (nota1 + nota2) / 2
+        // verificar a situacao
+        let situacao = ''
+        if (media >= 6) {
+            situacao = 'Aprovado'
+        } else {
+            situacao = 'Reprovado'
+        }
         // exibir média
-        alert(`A média do aluno é :${media.toFixed(2)}`)
+        alert(`A média do aluno é: ${media.toFixed(2)}\nSituação: ${situacao} `)
     </script>
 </body>
 </html>

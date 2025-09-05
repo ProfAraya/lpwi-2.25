@@ -15,17 +15,21 @@
         mostre o valor de cada parcela com duas casas decimais.
     </p>
     <script>
+        // obter o valor da conta
         const compra = Number(prompt('Digite o valor da compra:'))
+        // obter a forma de pagamento: 1 = a vista / 2 = a prazo
         const condicao = prompt('Digite 1 para pagamento a vista ou 2 para pagamento a prazo')
-        if (condicao == 1) {
-            const valor = compra * 0.90
-            alert(`O valor a ser pago é ${valor.toFixed(2)}`)
-        } else if (condicao == 2) {
-            const valor = compra / 3
-            alert(`Poderá pagar três parcelas de ${valor.toFixed(2)}`)
-        } else {
-            alert('Condição de pagamento deve ser 1 ou 2')
-        }
+        // se pagamento a vista, calcular desconto de 10%
+        if (condicao == "1") {
+            const parcela = compra * 0.9
+            alert(`O valor a pagar à vista será R$ ${parcela.toFixed(2)}`)
+        } else if (condicao == "2") {     // se pagamento a prazo, calcular o valor da compra dividido em três parcelas
+            const parcela = compra / 3
+            alert(`A compra poderá ser paga em três parcelas de R$ ${parcela.toFixed(2)}`)
+        } else { // se informar outra forma de pagamento, mostrar mensagem de erro
+            alert("Digite 1 para pagamento à vista ou 2 para pagamento a prazo")
+        }  
+
     </script>
 </body>
 </html>
