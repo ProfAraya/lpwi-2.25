@@ -12,8 +12,9 @@
     
     <script>
         let text = "";
-        for (i = 0; i < 10; i++) {
-            text += "O número é " + i + "<br>";
+        for (let i = 0; i < 10; i++) {
+            text += "O número é " + i + "<br>"
+            console.log('i:' + i + ' - text: ' + text)
         }
         document.getElementById("demo").innerHTML = text;
     </script>
