@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercício</h1>
+    <p>
+        Crie um objeto para representar um aluno com os seguintes atributos: nome, disciplina, frequencia, nota1, nota2,
+        media, situacao.
+        Os atributos nota1 e nota2 são as notas do primeiro e segundo bimestre. Inicialmente, os atributos media e
+        situacao estarão com valor null. O atributo media, deverá ser calculado é a média aritmética de nota1 e nota2.
+        Escreva um método para calcular a média e determinar a situação do aluno. Se a média for maior ou igual a 6 será
+        aprovado, se a média for menor que 6 e maior ou igual a 2 estará de exame final, se a média for menor que 2
+        estará reprovado. A frequência deve será maior ou igual a 75% para ser aprovado, serão será reprovado por
+        faltas.
+
+    </p>
+    <script>
+        const aluno = {
+            nome: "Fulano",
+            disciplina: "Javascript",
+            frequencia: 90,
+            nota1: 5,
+            nota2: 8,
+            media: null,
+            situacao: null,
+            calculaMedia: function () {
+                this.media = (this.nota1 + this.nota2) / 2
+            },
+            verificaSituacao: function () {
+                if (this.frequencia >= 75) {
+                    if (this.media < 2) {
+                        this.situacao = "Reprovado"
+                    } else if (this.media < 6) {
+                        this.situacao = 'Exame Final'
+                    } else {
+                        this.situacao = 'Aprovado'
+                    }
+
+                } else {
+                    this.situacao = 'Reprovado por faltas'
+                }
+            }
+
+
+
+        }
+    </script>
+</body>
+</html>
