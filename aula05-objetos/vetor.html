@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Vetor</h1>
+    <script>
+        const nomes = ['Pedro', 'João', 'Lucas', 'Maria', 'Ana']
+
+        for (x of nomes) {
+            console.log(x)
+        }
+
+        // ordenar vetor
+        console.log('Ordenando vetor')
+        console.log(typeof nomes)
+        nomes.sort()
+
+        for (x of nomes) {
+            console.log(x)
+        }
+        console.log('------------------')
+        for (x in nomes) {
+            console.log(x)
+        }
+    </script>
+</body>
+</html>
