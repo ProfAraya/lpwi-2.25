@@ -6,19 +6,20 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Usando While</h1>
+    <h1>Tabuada Decrescente</h1>
+    
     <p id="demo"></p>
-
+    
     <script>
+        const numero = Number(prompt('Digite um número inteiro:'))
         let text = "";
-        let i = 0; // inicialização
-        while (i < 10) {
-            
-            text += "O número é " + i + "<br>";
+        for (let i = 10; i >= 0; i--) {
+            text += `${numero} x ${i} = ${numero*i} <br>`
             console.log('i:' + i + ' - text: ' + text)
-            i++; // atualiza variável de controle
         }
+        alert(text)
         document.getElementById("demo").innerHTML = text;
+        document.getElementById("demo").style.color = "blue";
     </script>
 
 
