@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Vetor</h1>
+    <script>
+        const nomes = ['Pedro', 'Marina', 'Hugo', 'Amanda', 'Natália', 'Lucas']
+
+        for (x of nomes){
+            console.log(x)
+        }
+
+        // ordenar vetor
+        console.log(`Ordenando vetor`)
+        
+        nomes.sort()    // sempre que tem um ponto '.' estamos mexendo com um objeto (o que vem antes do ponto é um objeto). Nesse caso o vetor é um objeto
+
+        console.log(typeof nomes) // 'names' vai sair como sendo do tipo Object
+
+        for (x of nomes){
+            console.log(x)
+        }
+
+        console.log(`-----------------`)
+        
+        for (x in nomes){   // nesse caso retorna os atributos de 'nomes' que nesse caso são os índices
+            console.log(x)
+        }
+    </script>
+</body>
+</html>
