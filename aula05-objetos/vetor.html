@@ -8,8 +8,9 @@
 <body>
     <h1>Vetor</h1>
     <script>
-        const nomes = ['Pedro', 'João', 'Lucas', 'Maria', 'Ana']
+        const nomes = [ 'João', 'Lucas', 'Catarina', 'Maria', 'Ana']
 
+        // for of percorre os elementos de um vetor
         for (x of nomes) {
             console.log(x)
         }
@@ -17,15 +18,36 @@
         // ordenar vetor
         console.log('Ordenando vetor')
         console.log(typeof nomes)
+        // nomes é um vetor
+        // e vetores são objetos no Javascript
+        // .sort() é um método disponivel para vetores
+        // ordena o conteúdo do vetor (não cria outro vetor) 
         nomes.sort()
 
+        // exibe os nomes após ordenar o vetor
         for (x of nomes) {
             console.log(x)
         }
         console.log('------------------')
-        for (x in nomes) {
-            console.log(x)
-        }
+
+        // map() é outro método disponível para vetores
+        // aplica uma função a cada elemento do vetor
+        // o resultado da aplicação da função a cada elemento
+        // é armazenado em um novo vetor
+        let tamanho = nomes.map(x => x.length)
+        console.log(tamanho)
+
+        // filter() é outro método disponível para vetores
+        // cria um novo vetor após aplicar uma função a cada elemento
+        // do veto, filtra os elementos que a função retorna verdadeiro
+        let nomeFiltrado = nomes.filter(x => x.length>4)
+        console.log(nomeFiltrado)
+
+        // Arrow function
+        // outra forma (mais compacta) de declarar funções no Javascript
+        // veja mais sobre arrow function em 
+        // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+        // https://www.w3schools.com/js/js_arrow_function.asp
     </script>
 </body>
 </html>
