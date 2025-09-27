@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<input type="text" id="nome" placeholder="Digite seu nome">
+  <button onclick="Fila()">Entrar na fila</button>
+  <button onclick="atender()">Atender</button>
+
+  <h3>Pessoas na fila:</h3>
+  <ul id="fila"></ul>
+
+  <h3>Histórico de atendimentos:</h3>
+  <ul id="historico"></ul>
+    <script>
+    let fila = []; 
+    let historico = [];  
+    const formatador = new Intl.DateTimeFormat("pt-BR", {
+      hour: "2-digit", minute: "2-digit", second: "2-digit"
+    });
+    
+    function Fila() {
+      let nome = document.getElementById("nome").value.trim();
+      if (!nome) {
+        alert("Digite um nome!");
+        return;
+      }
+
+      let agora = Date.now();
+      fila.push({ nome: nome, entrada: agora });
+
+      document.getElementById("nome").value = "";
+      atualizar();
+    }
+    function atender() {
+      if (fila.length === 0) {
+        alert("Fila vazia!");
+        return;
+      }
+
+      let pessoa = fila.shift(); 
+      let agora = Date.now();
+      let tempo = Math.floor((agora - pessoa.entrada) / 1000);
+
+      historico.push({
+        nome: pessoa.nome,
+        entrada: formatador.format(pessoa.entrada),
+        atendimento: formatador.format(agora),
+        tempo: tempo
+      });
+
+      atualizar();
+    }
+    function atualizar() {
+      let listaFila = document.getElementById("fila");
+      listaFila.innerHTML = "";
+      fila.forEach(p => {
+        let li = document.createElement("li");
+        li.textContent = `${p.nome} (entrada: ${formatador.format(p.entrada)})`;
+        listaFila.appendChild(li);
+      });
+
+      let listaHistorico = document.getElementById("historico");
+      listaHistorico.innerHTML = "";
+      historico.forEach(h => {
+        let li = document.createElement("li");
+        li.textContent =
+          `${h.nome}  Entrada: ${h.entrada}, Atendimento: ${h.atendimento}, Esperou: ${h.tempo}s`;
+        listaHistorico.appendChild(li);
+      });
+    }
+    </script>
+</body>
+</html>

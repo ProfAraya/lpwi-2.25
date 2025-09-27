@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+ <form id="formulario">
+    <label>Qual sua idade?</label><br>
+    <input type="number" id="idade"><br><br>
+
+    <label>Digite um número:</label><br>
+    <input type="number" id="numero"><br><br>
+
+    <label>Digite sua nota (0 a 10):</label><br>
+    <input type="number" id="nota" min="0" max="10"><br><br>
+
+    <label>Digite outro número:</label><br>
+    <input type="number" id="numero2"><br><br>
+
+    <button type="submit">Verificar</button>
+  </form>
+    <div id="resultado"></div>
+
+    <script>
+      document.getElementById("formulario").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const idade = parseInt(document.getElementById("idade").value);
+      const numero = parseInt(document.getElementById("numero").value);
+      const nota = parseFloat(document.getElementById("nota").value);
+      const numero2 = parseInt(document.getElementById("numero2").value);
+
+      let saida = "";
+
+      if (idade < 12) {
+        saida += "Criança<br>";
+      } else if (idade >= 12 && idade < 17) {
+        saida += "Adolescente<br>";
+      } else if (idade >= 18) {
+        saida += "Adulto<br>";
+      }
+
+      if (numero % 2 === 0) {
+        saida += "O número é par<br>";
+      } else {
+        saida += "O número é ímpar<br>";
+      }
+
+      if (nota >= 7) {
+        saida += "Aprovado<br>";
+      } else if (nota >= 5 && nota < 7) {
+        saida += "Recuperação<br>";
+      } else if (nota < 5) {
+        saida += "Reprovado<br>";
+      }
+
+      saida += numero2 > 0 ? "Positivo" : numero2 < 0 ? "Negativo" : "Zero";
+      
+      document.getElementById("resultado").innerHTML = saida;
+    });
+
+    </script>
+</body>
+</html>
