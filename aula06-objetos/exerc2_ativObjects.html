@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio</title>
+</head>
+<body>
+    <h1>Exercicio Aula 04</h1>
+
+    <p id="demo"></p>
+    
+    <script>
+        // Programa que lê os dados de alunos (nome, disciplina, frequência, nota1 e nota2) e armazene esses dados em um vetor.
+        // Na página deve existir um botão que permita calcular a média e situação de cada aluno (deverá percorrer o vetor para isso). 
+        // Ao final deve apresentar uma tabela com todos os atributos de todos alunos.
+ 
+        // Função Construtora para objetos Alunos
+        function Aluno(nome, disciplina, frequencia, nota1, nota2) {
+            this.nome = nome;
+            this.disciplina = disciplina;
+            this.frequencia = frequencia;
+            this.nota1 = nota1;
+            this.nota2 = nota2;
+            this.media = null;
+            this.situacao = null;
+            this.calcMedia = function() {
+                this.media = (this.nota1 + this.nota2) / 2
+                console.log(this.media)
+            },
+            this.reportSituacao = function() {
+                if (this.frequencia >= 75) {
+                    if (this.media >= 6) {
+                        this.situacao = 'Aluno APROVADO!'
+                        console.log(this.situacao)
+                    } else if (this.media < 6 && this.media >= 2) {
+                        this.situacao = 'Aluno em EXAME FINAL'
+                        console.log(this.situacao)
+                    } else {
+                        this.situacao = 'Aluno REPROVADO'
+                        console.log(this.situacao)
+                    }
+                } else {
+                    this.situacao = 'Aluno REPROVADO'
+                    console.log(this.situacao)
+                }
+            }
+        }
+
+        // Cria 06 objetos Aluno
+        const aluno_01 = new Aluno('Marina', "Introdução à Algoritmos", 75, 7.0, 8.0);
+        const aluno_02 = new Aluno("Matheus", "Introdução à Algoritmos", 85, 6.0, 9.0);
+        const aluno_03 = new Aluno("Iago", "Introdução à Banco de Dados", 80, 9.0, 7.0);
+        const aluno_04 = new Aluno("Hugo", "Introdução à Banco de Dados", 70, 8.0, 8.5);
+        const aluno_05 = new Aluno("Heitor", "Introdução à Algoritmos", 65, 6.0, 8.0);
+        const aluno_06 = new Aluno("Júnior", "Introdução à Banco de Dados", 70, 7.0, 8.0);
+
+        // Display age
+        document.getElementById("demo").innerHTML = (`Meu nome é ${aluno_01.nome}. Estudo a disciplina ${aluno_01.disciplina} com frequência de aula de ${aluno_01.frequencia}%. <br>
+        Minhas notas no 1º bimestre e 2º bimestre foram, respectivamente: ${aluno_01.nota1.toFixed(2)} e ${aluno_01.nota2.toFixed(2)}`)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercicio</title>
+  <style>
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid black; padding: 6px; text-align: center; }
+    th { background-color: #f2f2f2; }
+  </style>
+</head>
+<body>
+  <h1>Exercicio Aula 04</h1>
+  <button onclick="mostrarTabela()">Gerar Tabela</button>
+  <div id="demo"></div>
+
+  <script>
+    // Função Construtora
+    function Aluno(nome, disciplina, frequencia, nota1, nota2) {
+      this.nome = nome;
+      this.disciplina = disciplina;
+      this.frequencia = frequencia;
+      this.nota1 = nota1;
+      this.nota2 = nota2;
+      this.media = ((nota1 + nota2) / 2).toFixed(2);
+      this.situacao = null;
+
+      this.reportSituacao = function() {
+        if (this.frequencia >= 75) {
+          if (this.media >= 6) {
+            this.situacao = "APROVADO";
+          } else if (this.media < 6 && this.media >= 2) {
+            this.situacao = "EXAME FINAL";
+          } else {
+            this.situacao = "REPROVADO";
+          }
+        } else {
+          this.situacao = "REPROVADO (Frequência)";
+        }
+      };
+
+      this.reportSituacao();
+    }
+
+    // Vetor inicial (sem notas fixas)
+    const alunos = [
+      { nome: "Marina", disciplina: "Introdução à Algoritmos", frequencia: 75 },
+      { nome: "Matheus", disciplina: "Introdução à Algoritmos", frequencia: 85 },
+      { nome: "Iago", disciplina: "Introdução à Banco de Dados", frequencia: 80 },
+      { nome: "Hugo", disciplina: "Introdução à Banco de Dados", frequencia: 70 },
+      { nome: "Heitor", disciplina: "Introdução à Algoritmos", frequencia: 65 },
+      { nome: "Júnior", disciplina: "Introdução à Banco de Dados", frequencia: 70 }
+    ];
+
+    // Pede as notas e transforma cada entrada já em um objeto Aluno
+    for (let i = 0; i < alunos.length; i++) {
+      let n1 = parseFloat(prompt(`Digite a Nota 1 de ${alunos[i].nome}:`));
+      let n2 = parseFloat(prompt(`Digite a Nota 2 de ${alunos[i].nome}:`));
+      alunos[i] = new Aluno(alunos[i].nome, alunos[i].disciplina, alunos[i].frequencia, n1, n2);
+    }
+
+    // Função para gerar a tabela
+    function mostrarTabela() {
+      let html = `
+        <table>
+          <tr>
+            <th>Nome</th>
+            <th>Disciplina</th>
+            <th>Frequência (%)</th>
+            <th>Nota 1</th>
+            <th>Nota 2</th>
+            <th>Média</th>
+            <th>Situação</th>
+          </tr>
+      `;
+
+      for (let i = 0; i < alunos.length; i++) {
+        html += `
+          <tr>
+            <td>${alunos[i].nome}</td>
+            <td>${alunos[i].disciplina}</td>
+            <td>${alunos[i].frequencia}</td>
+            <td>${alunos[i].nota1.toFixed(2)}</td>
+            <td>${alunos[i].nota2.toFixed(2)}</td>
+            <td>${alunos[i].media}</td>
+            <td>${alunos[i].situacao}</td>
+          </tr>
+        `;
+      }
+
+      html += "</table>";
+      document.getElementById("demo").innerHTML = html;
+    }
+  </script>
+</body>
+</html>
