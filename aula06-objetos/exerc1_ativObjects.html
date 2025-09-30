@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio</title>
+</head>
+<body>
+    <h1>Exercicio Aula 04</h1>
+    <script>
+        // Um programa que cria um objeto para representar um aluno com os seguintes atributos: nome, disciplina, frequencia, nota1, nota2, media, situacao.
+        // Os atributos nota1 e nota2 são as notas do primeiro e segundo bimestre. Inicialmente, os atributos media e situacao estarão com valor null. O atributo media, deverá ser calculado é a média aritmética de nota1 e nota2. Escreva um método para calcular a média e determinar a situação do aluno. Se a média for maior ou igual a 6 será aprovado, se a média for menor que 6 e maior ou igual a 2 estará de exame final, se a média for menor que 2 estará reprovado. A frequência deve será maior ou igual a 75% para ser aprovado, serão será reprovado por faltas. 
+
+
+        const aluno = {
+            nome:"Marina Castro",
+            disciplina: "Introdução à Algoritmos",
+            frequencias:80,
+            nota1:9,
+            nota2:8,
+            media:null,
+            situacao:null,
+            calcMedia : function() {
+                this.media = (this.nota1 + this.nota2) / 2
+                console.log(this.media)
+            },
+            reportSituacao : function() {
+                if (this.frequencia >= 75) {
+                    if (this.media >= 6) {
+                        this.situacao = 'Aluno APROVADO!'
+                        console.log(this.situacao)
+                    } else if (this.media < 6 && this.media >= 2) {
+                        this.situacao = 'Aluno em EXAME FINAL'
+                        console.log(this.situacao)
+                    } else {
+                        this.situacao = 'Aluno REPROVADO'
+                        console.log(this.situacao)
+                    }
+                } else {
+                    this.situacao = 'Aluno REPROVADO'
+                    console.log(this.situacao)
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>
