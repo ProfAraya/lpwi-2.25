@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alunos</title>
+</head>
+<body>
+    <h1>Alunos</h1>
+
+    <table id="alunos" border="1">
+
+    </table>
+
+
+    <script>
+
+        const aluno1 = {
+            nome: "Mateus",
+            curso: "Análise e Desenvolvimento de Sistemas"
+        }
+
+        
+        const aluno2 = {
+            nome: "Ana",
+            curso: "Gestão de Tecnologia da Informação"
+        }
+
+        
+        const aluno3 = {
+            nome: "Carlos",
+            curso: "Banco de Dados"
+        }
+
+        const aluno4= {
+            nome: "Raquel",
+            curso: "Segurança da Informação"
+        }
+
+        const alunos = [aluno1, aluno2, aluno3, aluno4]
+
+        let txt = ""
+        alunos.forEach(function(al){
+            console.log(`aluno: ${al.nome} curso: ${al.curso}`)
+            txt = txt + '<tr><td>'+al.nome+'</td><td>'+al.curso+'</td></tr>'
+        });
+   
+        document.getElementById("alunos").innerHTML = txt
+    </script>
+
+</body>
+</html>
