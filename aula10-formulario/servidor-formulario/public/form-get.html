@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulário GET</title>
+</head>
+<body>
+  <h1>Formulário (método GET)</h1>
+  <form action="/processar-get" method="get" id="formGet">
+    <label>Nome: <input type="text" name="nome" required></label><br><br>
+    <label>Idade: <input type="number" name="idade" required></label><br><br>
+    <button type="submit">Enviar</button>
+  </form>
+
+  <script>
+    document.getElementById("formGet").addEventListener("submit", function() {
+      console.log("Enviando dados via GET...");
+    });
+  </script>
+</body>
+</html>
