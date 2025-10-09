@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const idade = prompt("Qual sua idade?");
+         if (idade < 12) {
+            console.log("Criança");
+        } else if (idade >= 12 && idade < 17) {
+            console.log("Adolescente");
+        } else if (idade >= 18) {
+            console.log("Adulto");
+        }
+
+        const numero = prompt("Digite um número:");
+        if (numero % 2 === 0) {
+            console.log("O número é par");
+        } else {
+            console.log("O número é ímpar");
+        }
+
+        const nota = prompt("Digite sua nota (0 a 10):");
+        if (nota >= 7) {
+            console.log("Aprovado");
+        } else if (nota >= 5 && nota < 7) {
+            console.log("Recuperação");
+        } else if (nota < 5) {
+            console.log("Reprovado");
+        }
+
+        const numero2 = prompt("Digite outro número:");
+        numero2 > 0 ? console.log("Positivo") : numero2 < 0 ? console.log("Negativo") : console.log("Zero");
+
+    </script>
+</body>
+</html>
