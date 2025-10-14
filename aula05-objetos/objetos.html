@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Objetos</h1>
+    <script>
+        let carro = {
+            marca: "Toyota",
+            modelo: "Corola",
+            cor: "prata",
+            ano: 2008,
+            situacao: "desligado",
+            velocidade: 0,
+            acelerar: function (v) {
+                if (this.situacao == 'ligado') {
+                    this.velocidade = this.velocidade + v
+                } else {
+                    console.error('Carro esta desligado')
+                }
+
+            },
+            frear: function (v) {
+                this.velocidade = this.velocidade - v
+            },
+            ligarDesligar: function () {
+                if (this.situacao == "desligado") {
+                    this.situacao = "ligado"
+                } else {
+                    this.situacao = "desligado"
+                    this.velocidade = 0
+                }
+                return this.situacao
+            }
+        }
+
+
+        let pessoa = {
+            nome: "Fulano",
+            idade: 0,
+            fazAniversario: function (){
+                this.idade++
+            }
+        }
+
+        console.log(pessoa.nome + " tem " + pessoa.idade + " anos")
+        console.log('chama método fazAniversario')
+        pessoa.fazAniversario()
+        console.log(pessoa.nome + " tem " + pessoa.idade + " anos")
+        
+    </script>
+</body>
+</html>

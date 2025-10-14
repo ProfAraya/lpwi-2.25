@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Controle de Fila</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    input, button {
+      margin: 5px;
+      padding: 8px;
+    }
+    .container {
+      display: flex;
+      gap: 20px;
+    }
+    .box {
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 45%;
+    }
+    h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Controle de Fila de Atendimento</h1>
+
+  <!-- Campo para digitar o nome da pessoa -->
+  <input type="text" id="nome" placeholder="Digite o nome">
+
+  <!-- Botão que chama a função entrarFila() -->
+  <button onclick="entrarFila()">Entrar na fila</button>
+
+  <!-- Botão que chama a função atender() -->
+  <button onclick="atender()">Atender</button>
+
+  <!-- Dividindo a tela em duas partes: Fila Atual e Atendimentos -->
+  <div class="container">
+    <div class="box">
+      <h2>Fila Atual</h2>
+      <ul id="filaAtual"></ul>
+    </div>
+    <div class="box">
+      <h2>Atendimentos</h2>
+      <ul id="atendidos"></ul>
+    </div>
+  </div>
+
+  <script>
+    // ============================
+    // DECLARAÇÃO DOS VETORES
+    // ============================
+
+    // Vetor da fila: cada elemento terá {nome, entrada}
+    const fila = [];
+
+    // Vetor de atendidos: cada elemento terá {nome, entrada, saida, tempo}
+    const atendidos = [];
+
+    // Criando um formatador de datas para mostrar em "dia/mês/ano horas:minutos:segundos"
+    const formatador = new Intl.DateTimeFormat('pt-BR', {
+      dateStyle: 'short',
+      timeStyle: 'medium'
+    });
+
+    // ============================
+    // FUNÇÃO PARA ENTRAR NA FILA
+    // ============================
+    function entrarFila() {
+      // Pegamos o nome digitado no campo de texto
+      const nome = document.getElementById("nome").value.trim();
+
+      // Se o usuário não digitar nada, mostramos um alerta
+      if (nome === "") {
+        alert("Digite um nome!");
+        return;
+      }
+
+      // Pegamos a data/hora de entrada em milissegundos
+      const entrada = Date.now();
+
+      // Inserimos a pessoa no final da fila com push()
+      fila.push({ nome, entrada });
+
+      // Limpamos o campo de texto
+      document.getElementById("nome").value = "";
+
+      // Atualizamos a tela para mostrar a fila
+      atualizarTela();
+    }
+
+    // ============================
+    // FUNÇÃO PARA ATENDER UMA PESSOA
+    // ============================
+    function atender() {
+      // Se a fila estiver vazia, mostramos uma mensagem
+      if (fila.length === 0) {
+        alert("Fila vazia!");
+        return;
+      }
+
+      // shift() remove o primeiro elemento da fila
+      const pessoa = fila.shift();
+
+      // Guardamos a hora em que a pessoa foi atendida
+      const saida = Date.now();
+
+      // Calculamos o tempo de espera em segundos
+      const tempo = Math.floor((saida - pessoa.entrada) / 1000);
+
+      // Inserimos as informações no vetor de atendidos
+      atendidos.push({
+        nome: pessoa.nome,
+        entrada: pessoa.entrada,
+        saida,
+        tempo
+      });
+
+      // Atualizamos a tela para mostrar os atendimentos
+      atualizarTela();
+    }
+
+    // ============================
+    // FUNÇÃO PARA ATUALIZAR A TELA
+    // ============================
+    function atualizarTela() {
+      // Pegamos as listas do HTML
+      const listaFila = document.getElementById("filaAtual");
+      const listaAtendidos = document.getElementById("atendidos");
+
+      // Limpamos o conteúdo atual das listas
+      listaFila.innerHTML = "";
+      listaAtendidos.innerHTML = "";
+
+      // Mostramos as pessoas que estão na fila
+      fila.forEach((p) => {
+        const li = document.createElement("li");
+        li.textContent = `${p.nome} - entrou: ${formatador.format(p.entrada)}`;
+        listaFila.appendChild(li);
+      });
+
+      // Mostramos o histórico de atendimentos
+      atendidos.forEach((p) => {
+        const li = document.createElement("li");
+        li.textContent =
+          `${p.nome} - entrou: ${formatador.format(p.entrada)} | ` +
+          `atendido: ${formatador.format(p.saida)} | ` +
+          `esperou: ${p.tempo} segundos`;
+        listaAtendidos.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>

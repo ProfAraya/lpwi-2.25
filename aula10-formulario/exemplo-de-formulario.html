@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exemplo de Formulário</h1>
+<!-- Exemplo de formulário 
+     tag <form> delimita o formulário
+     method = pode ter dois valores
+       - GET:
+         a) tem limite de tamanho que pode transferir do navegador para servidor (backend) - 2KB
+         b) dados do formulário aparecem na URL na barra de endereços do navegador
+       - POST:
+         a) não tem limite de tamanho que pode transferir para o backend
+         b) dados do formulário NÃO aparecem na URL na barra de endereços do navegador. 
+            são transferidos no CORPO da requisição
+       
+       
+     action = destino para onde o navegador enviará os dados deste formulário 
+
+     tag <input> serve para criar vários elementos dentro do formulário, dependendo do 
+     atributo type: caixa de texto, caixa de seleção, botões de rádio, checkbox, etc
+
+     input com type = submit cria um botão que ao ser pressionado indica ao navegador que 
+     pode enviar os dados para o backend (servidor)
+
+     input com type = reset, volta o formulário ao estado original que foi carregado 
+-->
+    <form method="POST action="p1.js">
+
+        <input type="text" 
+               name="aluno" 
+               id="id_aluno" 
+               required 
+               placeholder="Digite seu nome">
+        <input type="submit" value="Ok">
+        <input type="reset" value="Limpar">
+    </form>
+</body>
+</html>

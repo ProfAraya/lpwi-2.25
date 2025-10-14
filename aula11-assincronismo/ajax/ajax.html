@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="demo">
+    <h1>The XMLHttpRequest Object</h1>
+    <button type="button" onclick="loadDoc()">Change Content</button>
+</div>
+<script>
+function loadDoc() {
+    // cria objeto XMLHttpRequest
+  var xhttp = new XMLHttpRequest();
+
+  // prepara o tratamento da resposta
+  xhttp.onreadystatechange = function() {
+      // readState 4 = resposta recebida
+      // status 200 = resposta OK
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML =
+      this.responseText;
+    }
+  };
+  // prepara a solicitação
+  xhttp.open("GET", "https://viacep.com.br/ws/70097900/json", true);
+  // envia a solicitação
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>
