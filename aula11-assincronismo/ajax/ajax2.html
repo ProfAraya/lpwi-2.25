@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="demo">
+    <h1>The XMLHttpRequest Object</h1>
+    <input type="text" name="cep" id="cep" placeholder="Digite seu CEP">
+    <button type="button" onclick="loadDoc()">Change Content</button>
+</div>
+<script>
+function loadDoc() {
+    // cria objeto XMLHttpRequest
+  let cep =  parseInt(document.getElementById("cep").value); 
+  var xhttp = new XMLHttpRequest();
+
+  // prepara o tratamento da resposta
+  xhttp.onreadystatechange = function() {
+      // readState 4 = resposta recebida
+      // status 200 = resposta OK
+    if (this.readyState == 4 && this.status == 200) {
+      let endereco = JSON.parse(this.responseText); 
+      document.write("<p>"+endereco.cep+"</p>") ;
+      document.write("<p>"+endereco.logradouro+"</p>") ;
+      document.write("<p>"+endereco.complemento+"</p>") ;
+      document.write("<p>"+endereco.bairro+"</p>") ;
+      document.write("<p>"+endereco.localidade+"</p>") ;
+      document.write("<p>"+endereco.uf+"</p>") ;
+      
+     // document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  // prepara a solicitação
+  xhttp.open("GET", "https://viacep.com.br/ws/"+cep+"/json", true);
+  // envia a solicitação
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>
