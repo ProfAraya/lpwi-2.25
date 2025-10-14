@@ -1,5 +1,5 @@
-const prompt = require('prompt-sync')() // uma função que cria importando a função prompt
+const prompt = require('prompt-sync')() // uma função que "cria" o comando prompt importando a função prompt
 
-const nome = prompt(`Qual é seu nome?`)
+const nome = prompt(`Qual é seu nome? `)
 
-console.log(${nome})
+console.log(`Olá ${nome}!`)
