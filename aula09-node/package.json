@@ -2,11 +2,7 @@
   "name": "aula09-node",
   "version": "1.0.0",
   "description": "",
-<<<<<<< HEAD
   "main": "prog1.js",
-=======
-  "main": "index.js",
->>>>>>> 44f388c (ajustes)
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,10 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
-=======
     "ansi-regex": "^6.2.2",
->>>>>>> 44f388c (ajustes)
     "prompt-sync": "^4.2.0"
   }
 }
+
+
