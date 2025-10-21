@@ -20,7 +20,9 @@ function loadDoc() {
     }
   };
   // prepara a solicitação
-  xhttp.open("GET", "https://viacep.com.br/ws/70874060/json", true);
+
+  xhttp.open("GET", "https://viacep.com.br/ws/70097900/json", true); // true = chamada assíncrona, se for falso = chamada síncrona
+  
   // envia a solicitação
   xhttp.send();
 }
