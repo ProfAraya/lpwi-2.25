@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        carro = {
+            marca: "Toyota",
+            modelo: "Supra",
+            ano: 2002,
+            cor: "Branca",
+            descricao: function() {
+                return "Marca: " + this.marca + " Modelo: " + this.modelo + " Ano: " + this.ano + " Cor: " + this.cor;
+            }
+        };
+        console.log("Marca: " + carro.marca);
+        console.log("Modelo: " + carro.modelo);
+        console.log("Ano: " + carro.ano);
+        console.log("Cor: " + carro.cor);
+        
+        console.log(carro.descricao());
+
+        let livro = {
+            titulo: "Noites Brancas",
+            autor: "Dotoievski",
+        };
+        livro.ano = 1848;
+        livro.titulo = "Irmãos Karamazov";
+        delete livro.autor;
+        console.log(livro);
+
+    </script>
+</body>
+</html>

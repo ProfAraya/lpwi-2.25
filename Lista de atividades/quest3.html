@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let numero = prompt("Digite um número:");
+        let i = 1;
+        for (i; i <= 10; i++) {
+            let resultado = numero * i;
+            console.log(numero + " x " + i + " = " + resultado);
+        }
+
+        i = 10;
+
+
+        while (i >= 1) {
+            console.log(i);
+            i--;
+        }
+
+        let pessoa = {
+            nome: "João",
+            idade: 35,
+            cidade: "DF"
+        };
+        
+        for (let i in pessoa) {
+            console.log(i + ": " + pessoa[i]);
+        }
+
+        let frutas = ["maçã", "banana", "laranja", "uva"];
+        for (let i of frutas) {
+            console.log(i);
+        }
+
+    </script>
+</body>
+</html>
